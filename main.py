@@ -1,17 +1,12 @@
-def funk(a):
-    while True:
-        b = input('Enter ')
-        if b == 'stop':
-            break
-        a = a + int(b)
-        print(a)
-funk(0)
+list = ['доход', 'обход', 'восток']
+for i in list:
+    if i == i[::-1]:
+        print(i,  '- Palindrome')
+    else:
+        print('Not Palindrome')
 
-def func(d):
-    while True:
-        c = input('Enter ')
-        if c == 'stop':
-            break
-        d = d * int(c)
-        print(d)
-func(1)
+list1 = ['доход', 'обход', 'восток']
+list2 = [i for i in list1 if i == i[::-1]]
+print(i, '- Palindrome')
+
+
