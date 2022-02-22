@@ -15,11 +15,11 @@ class Dog(Pet):
 myAnimal = Pet('Tom')
 print('his name', myAnimal.name)
 
-tom = Cat('Tom')
-tom.name
-tom.make_noise()
+myAnimal = Cat('Tom')
+myAnimal.name
+myAnimal.make_noise()
 
-Tom = Dog('Tom')
-Tom.name
-Tom.make_noize()
+myAnimal = Dog('Tom')
+myAnimal.name
+myAnimal.make_noize()
 
