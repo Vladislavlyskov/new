@@ -1,4 +1,189 @@
-kfjdbns
-dfjkv
-mhvjk
-sb
+funk = lambda x, y, z: x + y + z
+
+funk = lambda x: f'Hello, {x}'
+print(funk(input('Enter name: ')))
+
+foo = [lambda name: print(f'Hello, {name}')][0](input('Enter name '))
+
+
+result = map(lambda x: x ** 2, [1, 2, 3, 4, 5, 6])
+print(list(result))
+
+result = map(lambda x: str(x),[5, 3])
+print(list(result))
+
+result = filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6])
+print(list(result))
+
+
+result = filter(lambda x: 'k' in x,['kirill', 'oleg', 'vlad'])
+print(list(result))
+
+from functools import reduce
+result = reduce(lambda a, x: a + x ** 2, [12, 2, 3], 0)
+print(result)
+
+from functools import reduce
+result = filter(lambda x: x % 3 == 0,[1, 3, 9, 5, 6, 7])
+results = reduce(lambda a, d: a * d, result, 1)
+print(results)
+
+from datetime import datetime
+def my_decorator(func):
+    def do_some_staff():
+        #some actions print(before)
+        result = func()
+        print(datetime.now())
+        # some actions print(after)
+        return result
+
+    return do_some_staff
+# def my_func():
+#     pass
+# my_new_func = my_decorator(my_func)
+# my_new_func
+@my_decorator
+def my_func():
+    pass
+my_func()
+
+
+
+my_file = open('test.txt')
+print(my_file.readlines())
+
+my_file = open('test.txt')
+while True:
+    line = my_file.readline()
+    if not line:
+        break
+    print(line)
+my_file.close()
+
+with open('test.txt') as my_file:
+    for line in my_file.readlines():
+        print(line)
+
+with open('test.txt') as my_file:
+    print(my_file.read())
+
+
+
+
+with open('test.txt', 'r') as my_file, open('out.txt', 'w') as new_file:
+    for i in my_file:
+        new_file.write(i)
+
+
+with open('test.txt', 'w', encoding='test1.txt') as my_file:
+        file.write(line)
+
+
+with open('test.txt', 'r') as my_file, open('out.txt', 'w') as new_file:
+    for i in my_file:
+        new_file.write(i)
+new = []
+with open('test.txt') as my_file:
+    for line in my_file.readlines():
+        nst = ''
+        for i in line:
+            if i == '0':
+                nst = nst + '1'
+            elif i == '1':
+                nst = nst + '0'
+            else:
+                nst = nst + i
+        new.append(nst)
+    print(new)
+with open('out.txt', 'w') as my_file_new:
+    my_file_new.writelines(new)
+
+with open('test.txt', 'a') as my_file:
+    my_file.writelines([input('enter ') + '\n' for i in range(3)])
+
+# # zadanie 10.6
+count = 0
+eq = True
+with open("test.txt", "r", encoding = "utf-8") as my_file, open("out.txt", "r", encoding = "utf-8") as new_file:
+    for a1, a2 in zip(my_file, new_file):
+        count += 1
+        if a1 != a2:
+            eq = False
+            break
+print(f"Нет отличий") if eq else print(f"Отличается строка {count}")
+#
+# # zadanie 10.1
+my_file = open('test.txt')
+print(my_file.readline())
+while True:
+    line = my_file.readline()
+    if not line:
+        break
+
+    print(line)
+#
+#
+# my_file.close()
+#
+with open('test.txt') as my_file:
+    lines = my_file.readlines()
+    print(lines[4])
+
+#zadanie 10.3
+with open('test.txt', 'a') as my_file:
+    my_file.writelines([input('enter ') + '\n' for i in range(3)])
+
+# zadanie 10.5
+with open('test.txt') as my_file, open('out.txt', 'w') as new_file, open('out1.txt', 'w') as new_file1:
+    lines = my_file.readlines()
+    new_file.writelines(lines[::2])
+    new_file1.writelines(lines[1::2])
+
+import json
+with open('test.txt', 'w') as my_file:
+    data = json.dumps({'a': 5}) #записывает в файл
+    my_file.write(data)
+
+with open('test.txt') as my_file:
+    data = json.loads(my_file.read()) #
+    print(data)
+
+import csv
+rows = []
+with open('file.csv', 'r') as csvfile:
+    csvreader = csv.reader(csvfile)
+    fields = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+    print('Total no. of rows: %d' %(csvreader.line_num))
+for col in fields:
+    print("%10s" % col,end='')
+print()
+for row in rows[:5]:
+    for col in row:
+        print("%10s" % col,sep='',end='')
+    print()
+
+
+
+import csv
+with open('file.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    for row in spamreader:
+        print('☺ '.join(row))
+
+with open('file.csv', newline='') as csvfile:
+    for row in csvfile.readlines():
+        print(' | '.join(row.split(',')))
+
+import csv
+fields = ['firstname', 'lastname', 'group']
+rows = [
+    ['Alex', 'Varkalov', 'z-21'],
+    ['Max', 'Ivanov', 'z-21']
+]
+
+with open('file.csv', 'w') as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(fields)
+    csvwriter.writerows(rows)

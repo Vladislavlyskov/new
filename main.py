@@ -1,37 +1,67 @@
-# # zadanie 10.6
-count = 0
-eq = True
-with open("test.txt", "r", encoding = "utf-8") as my_file, open("out.txt", "r", encoding = "utf-8") as new_file:
-    for a1, a2 in zip(my_file, new_file):
-        count += 1
-        if a1 != a2:
-            eq = False
-            break
-print(f"Нет отличий") if eq else print(f"Отличается строка {count}")
+# class A:
+#     def do_somethink(selfself):
+#         print('AA')
+# class B(A):
+#     def do_somethink(self):
+#         print('BB')
+# obj = B()
+# obj.do_somethink()
 #
-# # zadanie 10.1
-my_file = open('test.txt')
-print(my_file.readline())
-while True:
-    line = my_file.readline()
-    if not line:
-        break
+#
+# class A:
+#     def do_somethink(selfself):
+#         print('AA')
+# class B(A):
+#     def do_somethink(self):
+#         super().do_somethink()
+#         print('BB')
+# obj = B()
+# obj.do_somethink()
+#
+# class A:
+#     def __init__(self, a):
+#         self.a = a
+# class B:
+#     def __init__(self, a, b):
+#         super().__init__(a)
+#         self.b = b
 
-    print(line)
 #
+# class Calculator:
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
 #
-# my_file.close()
+#     def summ(self):
+#       print(self.a + self.b)
 #
-with open('test.txt') as my_file:
-    lines = my_file.readlines()
-    print(lines[4])
+#     def otn(self):
+#         print(self.a - self.b)
+#     def delenie(self):
+#         print(self.a / self.b)
+#     def umn(self):
+#         print(self.a * self.b)
+# obj = Calculator(10, 5)
+# obj.summ()
+# obj.otn()
+# obj.delenie()
+# obj.umn()
 
-#zadanie 10.3
-with open('test.txt', 'a') as my_file:
-    my_file.writelines([input('enter ') + '\n' for i in range(3)])
+# class Calc:
+#     def sum(self, a, b):
+#         print(a+b)
+#     def minus(self, a, b):
+#         print(a-b)
+# c = Calc()
+# # c.sum(1, 5)
+# print(dir(Calc))
 
-# zadanie 10.5
-with open('test.txt') as my_file, open('out.txt', 'w') as new_file, open('out1.txt', 'w') as new_file1:
-    lines = my_file.readlines()
-    new_file.writelines(lines[::2])
-    new_file1.writelines(lines[1::2])
+class SomeClass:
+    var = 'text'
+    def __init__(self, new_var):
+        self.new_var = new_var
+a = SomeClass(1)
+b = SomeClass(2)
+print(a.new_var, a.var)
+print(b.new_var, b.var)
+
