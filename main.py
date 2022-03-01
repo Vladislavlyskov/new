@@ -1,17 +1,17 @@
-#14.02
-# import random
-# from time import sleep
-# def generator():
-#     k = random.randint(0, 10)
-#     while True:
-#         k = k + 10
-#         sleep(2)
-#         yield  k
-#
-# g = generator()
-# for i in g:
-#     print(i)
-# print(next(g))
+14.02
+import random
+from time import sleep
+def generator():
+    k = random.randint(0, 10)
+    while True:
+        k = k + 10
+        sleep(2)
+        yield  k
+
+g = generator()
+for i in g:
+    print(i)
+print(next(g))
 
 #14.04
 import sys
