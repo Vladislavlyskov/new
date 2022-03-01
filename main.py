@@ -1,62 +1,39 @@
-# 11.01
-class Dog:
-    def __init__(self, name):
-        self.name = name
-dog = Dog('Charlie')
-print('his name', dog.name)
+#14.02
+# import random
+# from time import sleep
+# def generator():
+#     k = random.randint(0, 10)
+#     while True:
+#         k = k + 10
+#         sleep(2)
+#         yield  k
+#
+# g = generator()
+# for i in g:
+#     print(i)
+# print(next(g))
 
-#11.02
-class Dog:
-    def __init__(self, name):
-        self.name = name
-dog = Dog('Charlie')
-print('his name', dog.name)
+#14.04
+import sys
+import csv
 
-class Dog_1(Dog):
-    def make_noize(self):
-        print('Gav')
-dog = Dog_1('Charlie')
-dog.make_noize()
-
-#11.03
-class Dog:
-    def jump():
-        print('Jump')
-    def run():
-        print('Run')
-Dog.jump()
-Dog.run()
-
-#11.04
-class Dog:
-    def __init__(self, name, age, heigth, weigth):
-        self.name = name
-        self.age = age
-        self.heigth = heigth
-        self.weigth = weigth
-    def dog_parametrs(self):
-        print(f'Dog perametrs: name -  {self.name}, age - {self.age}, heigth - {self.heigth}, weigth - {self.weigth}')
-    def jump(self):
-        print('Jump')
-    def run(self):
-        print('Run')
-    def bark(self):
-        print('Woof Woof')
-dog = Dog('Charlie', 10, 2, 25)
-dog.dog_parametrs()
-dog.jump()
-dog.run()
-dog.bark()
-#11.05
-class New_name(Dog):
-    def change_name(self, name, age, heigth, weigth):
-        self.name = name
-        self.age = age
-        self.heigth = heigth
-        self.weigth = weigth
-        print('new name is', self.name)
-dog = New_name('Tomas', 10, 2, 25)
-dog.change_name('Tomas', 10, 2, 25)
-
-
+import argparse
+print(sys.argv)
+parser = argparse.ArgumentParser()
+parser.add_argument('-fn', '--first-name',
+required=True)
+parser.add_argument('-ln', '--last-name',
+required=True)
+parser.add_argument('-age' '--age-age',
+required=True)
+parser.add_argument('echo')
+args = parser.parse_args()
+print(args)
+print('First name:', args.first_name)
+print('Last name:', args.last_name)
+print('Age', args.age)
+print('echo:', args.echo)
+with open("file.csv", mode="w", encoding='utf-8') as w_file:
+    file_writer = csv.writer(w_file, delimiter = ",", lineterminator="\r")
+    file_writer.writerow(["Имя", "Фамилия", "Возраст"])
 
